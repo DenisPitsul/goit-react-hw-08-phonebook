@@ -1,8 +1,8 @@
 import classes from './ContactForm.module.css'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { useDispatch, useSelector } from 'react-redux'
-import { addContact } from 'redux/operations'
-import { selectContacts } from 'redux/selectors'
+import { addContact } from 'redux/contacts/operations'
+import { selectContacts } from 'redux/contacts/selectors'
 import {object, string} from 'yup'
 
 const schema = object().shape({
@@ -25,7 +25,7 @@ const ContactForm = () => {
           return;
         }
       
-        dispatch(addContact({name: newContact.name, phone: newContact.number}))
+        dispatch(addContact({name: newContact.name, number: newContact.number}))
     }
 
     return (
